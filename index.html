@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="section_1">
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars">  Law Firm</i>
+        </label>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Practice</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Blog/News</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a class="active" href="#">Contact</a></li>
+            <li><i class="fa fa-search" aria-hidden="true" style="color: white;"></i></li>
+        </ul>
+    </nav> <br>
+    <p class="p_tag">WHAT WE ARE</p>
+    <h1>Call us now: <br> 777.888.6666</h1>
+    </div>
+    <div id="section_2">
+        <div class="part1">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497698.66008764814!2d77.35073867566955!3d12.954517004756145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1599850922407!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <p class="p_tag2">CONTACT US</p>
+            <h2>Law Office</h2>
+            <p class="p_tag3">Lawyers are involved in many of the largest and most complex<br> transactions in the region. Renowned for the quality of work of<br> the lawyers, our team provide best legal advice.</p>
+            <div class="head-office"><a href="#" target="_self">HEAD OFFICE</a></div><div class="bt_bb_service_content_text">11 Wall St,<br>
+                BENGALURU, KA 56001</div><div class="phone"><a href="#" target="_self">PHONE</a></div><div class="bt_bb_service_content_text">+ 91 555 23678<br>
+                + 91 555 23678</div>   
+            <div class="partners"><a href="#" target="_self">OUR PARTNERS</a></div><div class="bt_bb_service_content_text">Wilhelminakade 909,<br>
+                Rotterdam</div>
+            <div class="emailinfo"><a href="#" target="_self">EMAIL</a></div><div class="bt_bb_service_content_text">info@bold-themes<br>
+                office@bold-themes</div>
+        </div>
+        <div class="part2">
+            <p class="p_tag4">E-MAIL FORM</p>
+            <h3>Contact us</h3>
+            <p class="p_tag5">With extensive experience we advise top national and<br> international companies.</p>
+            <div id="error_message"></div>
+            <form>
+                <p><label for="">Your Name (required)<br><input type="text" id="name" value size="50" onselect="selectFunction()"></label></p>
+                <p><label for="">Your Email (required)<br><input type="email" id="email" value size="50" onselect="selectFunction()"></label></p>
+                <p><label for="">Subject<br><input type="text" id="subject" value size="50" onselect="selectFunction()"></label></p>
+                <p><label for="">Your Message<br><textarea name="text" id="text" cols="52" rows="15" onselect="selectFunction()"></textarea></label></p>
+                <p><input type="submit" value="Send" id="submit" onclick="Click()"></p>
+            </form>
+        </div>
+        
+    </div>
+    <footer>
+        <h4>Follow Law Firm</h4>
+        <p class="last">11 Wall St, BENGALURU, KA 56001</p>
+        <p class="last1">+ 91 555 23678</p>
+    
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('form').on('submit', (e) => {
+        e.preventDefault();
+
+        const name = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const subject = $('#subject').val().trim();
+        const text = $('#text').val().trim();
+
+        const data = {
+            name,
+            email,
+            subject,
+            text
+        };
+
+        $.post('/email', data, function(){
+            console.log('Server received our data');
+        });
+
+        
+        });
+    </script>
+</body>
+</html>
